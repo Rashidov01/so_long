@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:55:41 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/15 21:12:04 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/19 21:50:25 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 
 # define WALL "./images/wall.xpm"
 # define ME "./images/player.xpm"
-# define SPACE "./images/wall.xpm"
+# define SPACE "./images/floor.xpm"
 # define COIN "./images/coin.xpm"
-# define EXIT "./images/finish.xpm"
+# define EXIT "./images/exit.xpm"
 
 typedef struct s_game
 {
@@ -35,25 +35,15 @@ typedef struct s_game
 	int		j;
 	char	*line;
 	char	**arr;
-}			t_game;
-
-typedef struct s_data
-{
-	int		row;
 	int		col;
-	char	**map;
-	void	*mlx;
-	void	*mlx_win;
-}			t_data;
-
-typedef struct s_data1
-{
+	char	*mlx;
 	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}			t_data1;
+	int		p_x;
+	int		p_y;
+	int		size_x;
+	int		size_y;
+	int		*mlx_window;
+}			t_game;
 
 int			file_check(char *str);
 int			file_check_permission(char *str);
@@ -70,5 +60,8 @@ int			check_line(char *str, char c);
 void		ft_free_arr(char **p);
 int			str_compare(char *s1, char *s2);
 int			print_map(char **str);
+void		draw_img(t_game *game, char *path, int x, int y);
+void		pick_img(t_game *game, char c, int x, int y);
+void		draw_map(t_game *game);
 
 #endif

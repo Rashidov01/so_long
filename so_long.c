@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:56:01 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/15 21:12:17 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/19 21:16:13 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_map_parsing(char **av)
 
 int	main(int ac, char **av)
 {
-	t_data	data;
+	t_game	game;
 
 	if (ac != 2)
 	{
@@ -83,8 +83,13 @@ int	main(int ac, char **av)
 	}
 	if (ft_map_parsing(av) == 1)
 		return (1);
-	data.map = get_map(av[1]);
-	data.row = get_row_count(data.map);
-	data.col = ft_strlen(data.map[0]);
+	game.map = get_map(av[1]);
+	game.row = get_row_count(game.map);
+	game.col = ft_strlen(game.map[0]);
+	game.mlx = mlx_init();
+	game.mlx_window = mlx_new_window(game.mlx, game.col * 64, game.row * 64,
+			"so_long");
+	draw_map(&game);
+	mlx_loop(game.mlx);
 	return (0);
 }
