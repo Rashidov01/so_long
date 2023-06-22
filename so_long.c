@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:56:01 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/23 01:46:24 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/23 02:08:27 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ int	main(int ac, char **av)
 	game.coins = count_collactable(game.map);
 	printf("%d\n", game.coins);
 	draw_map(&game);
-	mlx_key_hook(game.mlx_win, key_hook, &game);
+	// mlx_key_hook(game.mlx_win, key_hook, &game);
+	mlx_hook(game.mlx_win, 2, (1L << 0), key_hook, &game);
 	mlx_hook(game.mlx_win, 17, 0, mouse_event, &game);
 	mlx_loop(game.mlx);
 	free(game.map);
