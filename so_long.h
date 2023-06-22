@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:55:41 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/19 21:50:25 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/23 00:15:33 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@
 # define SPACE "./images/floor.xpm"
 # define COIN "./images/coin.xpm"
 # define EXIT "./images/exit.xpm"
+# define EXITEXIT "./img/exit_exit.xpm"
+
+# define KEY_ESC 53;
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_W 13
 
 typedef struct s_game
 {
@@ -38,11 +45,18 @@ typedef struct s_game
 	int		col;
 	char	*mlx;
 	void	*img;
-	int		p_x;
-	int		p_y;
+	int		position_x;
+	int		position_y;
 	int		size_x;
 	int		size_y;
-	int		*mlx_window;
+	int		*mlx_win;
+	int		coin;
+	int		moves;
+	int		x;
+	int		y;
+	int		coins;
+	int		markexit;
+	int		is_player;
 }			t_game;
 
 int			file_check(char *str);
@@ -60,8 +74,14 @@ int			check_line(char *str, char c);
 void		ft_free_arr(char **p);
 int			str_compare(char *s1, char *s2);
 int			print_map(char **str);
-void		draw_img(t_game *game, char *path, int x, int y);
-void		pick_img(t_game *game, char c, int x, int y);
+void		graphics(t_game *game, char *path, int map_x, int map_y);
+void		pick_image(t_game *game, char c, int x, int y);
 void		draw_map(t_game *game);
-
+void		close_window(t_game *game);
+void		mark_exit(t_game *game, int x, int y);
+void		win(t_game *game);
+int			moves(t_game *game, int x, int y);
+int			key_hook(int keycode, t_game *game);
+int			count_collactable(char **map);
+void		free_and_exit(t_game *game);
 #endif

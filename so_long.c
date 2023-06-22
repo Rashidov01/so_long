@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:56:01 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/19 21:16:13 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/23 00:11:13 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_map_parsing(char **av)
 	map = NULL;
 	if (file_check(av[1]) == 0 || file_check_permission(av[1]) == 0)
 	{
-		write(1, "file format error\n", 19);
+		write(2, "file format error\n", 19);
 		return (1);
 	}
 	map = get_map(av[1]);
@@ -69,6 +69,12 @@ int	ft_map_parsing(char **av)
 		return (1);
 	}
 	ft_free_arr(map);
+	return (0);
+}
+
+int	mouse_event(t_game *game)
+{
+	close_window(game);
 	return (0);
 }
 
@@ -87,9 +93,15 @@ int	main(int ac, char **av)
 	game.row = get_row_count(game.map);
 	game.col = ft_strlen(game.map[0]);
 	game.mlx = mlx_init();
-	game.mlx_window = mlx_new_window(game.mlx, game.col * 64, game.row * 64,
+	game.mlx_win = mlx_new_window(game.mlx, game.col * 64, game.row * 64,
 			"so_long");
+	game.coins = count_collactable(game.map);
+	printf("%d\n", game.coins);
 	draw_map(&game);
+	mlx_key_hook(game.mlx_win, key_hook, &game);
+	mlx_hook(game.mlx_win, 17, 0, mouse_event, &game);
 	mlx_loop(game.mlx);
+	free(game.map);
+	ft_free_arr(game.arr);
 	return (0);
 }

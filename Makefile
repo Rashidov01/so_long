@@ -6,13 +6,13 @@
 #    By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/24 11:26:50 by arashido          #+#    #+#              #
-#    Updated: 2023/06/15 21:02:08 by arashido         ###   ########.fr        #
+#    Updated: 2023/06/20 18:58:09 by arashido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = so_long.c parsing_map.c parsing_error.c parsing_item.c\
 			valid_map.c utils/gnl/gnl_utils.c utils/gnl/get_next_line_utils.c\
-			utils/gnl/get_next_line.c utils.c\
+			utils/gnl/get_next_line.c utils.c keyhooks.c\
 
 OBJ	= $(SRC:.c=.o)
 

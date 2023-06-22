@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 19:30:34 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/03 19:42:32 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/22 23:20:18 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ int	check_exit(char **map)
 
 int	check_collectible(char **map)
 {
-	int	count;
 	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -91,4 +91,21 @@ int	check_collectible(char **map)
 	if (count == 0)
 		return (0);
 	return (1);
+}
+
+int	count_collactable(char **map)
+{
+	int		i;
+	int		count;
+
+	i = 0;
+	count = 0;
+	while (map[i])
+	{
+		count += check_line(map[i], 'C');
+		i++;
+	}
+	if (count == 0)
+		return (0);
+	return (count);
 }
