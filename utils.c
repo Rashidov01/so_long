@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 20:30:26 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/23 00:16:34 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/23 01:11:33 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,16 @@ void	ft_free_arr(char **p)
 	int	i;
 
 	i = 0;
-	if (p == NULL)
-		return ;
-	while (p[i] != NULL)
+	while (p != NULL && p[i])
 	{
 		free(p[i]);
 		i++;
 	}
-	free(p);
+	if (p)
+	{
+		free(p);
+		p = NULL;
+	}
 }
 
 int	str_compare(char *s1, char *s2)
