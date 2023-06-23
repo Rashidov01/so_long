@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:48:35 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/23 01:04:40 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/23 18:06:06 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	mark_exit(t_game *game, int x, int y)
 	}
 }
 
-void	movescount(t_game *game, int x, int y)
+void	movescount(t_game *game, int x, int y, int flag)
 {
-	// if (flag == 1)
-	// 	printf("Moves: %d\n", ++game->moves);
+	if (flag == 1)
+		printf("Moves: %d\n", game->moves++);
 	if (game->map[y][x] == 'C')
 	{
 		game->map[y][x] = '0';
@@ -39,7 +39,7 @@ void	win(t_game *game)
 	if (game->coins <= 0
 		&& game->map[game->position_y][game->position_x] == 'E')
 	{
-		printf("\n\nGAME OVER! YOU WIN\n\n");
+		printf("\n\nYOU WIN !!!\n\n");
 		close_window(game);
 	}
 }
@@ -59,7 +59,7 @@ int	moves(t_game *game, int x, int y)
 	{
 		graphics(game, SPACE, game->position_x, game->position_y);
 		graphics(game, ME, game->position_x + x, game->position_y + y);
-		movescount(game, game->position_x + x, game->position_y + y);
+		movescount(game, game->position_x + x, game->position_y + y, 1);
 		win(game);
 	}
 	return (0);

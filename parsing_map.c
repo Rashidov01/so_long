@@ -6,14 +6,14 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:55:58 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/15 14:23:14 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/23 18:14:57 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 // this function checks the border top and bottom
-int	check_line_horizontal(char *line)
+int	check_line_x(char *line)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ int	check_line_horizontal(char *line)
 }
 
 // this function checks the border right and left
-int	check_line_vertical(char *line)
+int	check_line_y(char *line)
 {
 	int	i;
 	int	count;
@@ -81,17 +81,17 @@ int	check_border(char **map)
 	{
 		if (i == 0)
 		{
-			if (check_line_horizontal(map[i]) == 0)
+			if (check_line_x(map[i]) == 0)
 				return (0);
 		}
 		else if (i == count - 1)
 		{
-			if (check_line_horizontal(map[i]) == 0)
+			if (check_line_y(map[i]) == 0)
 				return (0);
 		}
 		else
 		{
-			if (check_line_vertical(map[i]) == 0)
+			if (check_line_y(map[i]) == 0)
 				return (0);
 		}
 		i++;
