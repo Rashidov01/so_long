@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 19:30:34 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/22 23:20:18 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/26 19:34:05 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ int	check_extra_character(char **map)
 	while (map[i])
 	{
 		if (check_character(map[i]) == 0)
-			return (0);
+			return (write(2, "Error: There is an extra character!!!\n", 36),
+					0);
 		i++;
 	}
 	return (1);
@@ -72,7 +73,10 @@ int	check_exit(char **map)
 		i++;
 	}
 	if (count != 1)
+	{
+		write(2, "Error: there is not exit\n", 26);
 		return (0);
+	}
 	return (1);
 }
 
@@ -89,14 +93,14 @@ int	check_collectible(char **map)
 		i++;
 	}
 	if (count == 0)
-		return (0);
+		return (write(2, "Error: There is not collectable!!!\n", 36), 0);
 	return (1);
 }
 
 int	count_collactable(char **map)
 {
-	int		i;
-	int		count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;

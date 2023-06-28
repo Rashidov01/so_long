@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:55:41 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/23 18:14:04 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/29 01:54:13 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,4 @@ void		win(t_game *game);
 int			moves(t_game *game, int x, int y);
 int			key_hook(int keycode, t_game *game);
 int			count_collactable(char **map);
-void		free_and_exit(t_game *game);
 #endif

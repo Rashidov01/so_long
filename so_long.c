@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:56:01 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/23 02:08:27 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/28 19:07:10 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	map_parsing_helper(char **map)
 		|| check_start(map) == 0 || check_border(map) == 0
 		|| check_extra_character(map) == 0 || check_map_rectangle(map) == 0)
 	{
-		write(2, "In the map has ERROR !!!\n", 26);
+		if (map == NULL)
+			write(2, "Error: Invalide map !!!\n", 25);
 		return (1);
 	}
 	return (0);

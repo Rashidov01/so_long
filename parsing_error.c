@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:55:56 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/23 18:14:13 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/26 19:34:53 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	check_map_rectangle(char **map)
 	{
 		i++;
 		if (length != ft_strlen(map[i]))
-			return (0);
+			return (write(2, "Error: Map is not rectangle!!!\n", 32), 0);
 	}
 	return (1);
 }
@@ -73,6 +73,6 @@ int	check_start(char **map)
 		i++;
 	}
 	if (count != 1)
-		return (0);
+		return (write(2, "Error: There is no Player!!!\n", 30), 0);
 	return (1);
 }

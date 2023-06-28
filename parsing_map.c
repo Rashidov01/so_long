@@ -6,7 +6,7 @@
 /*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:55:58 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/23 18:14:57 by arashido         ###   ########.fr       */
+/*   Updated: 2023/06/29 01:55:00 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,20 @@ int	check_border(char **map)
 		if (i == 0)
 		{
 			if (check_line_x(map[i]) == 0)
-				return (0);
+				return (write(2, "Error: There is mistake in the border!!!\n",
+						42), 0);
 		}
 		else if (i == count - 1)
 		{
 			if (check_line_y(map[i]) == 0)
-				return (0);
+				return (write(2, "Error: There is mistake in the border!!!\n",
+						42), 0);
 		}
 		else
 		{
 			if (check_line_y(map[i]) == 0)
-				return (0);
+				return (write(2, "Error: There is mistake in the border!!!\n",
+						42), 0);
 		}
 		i++;
 	}
