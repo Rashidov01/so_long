@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:56:01 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/28 19:07:10 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/01 13:48:15 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	**get_map(char *str)
 	game.line = get_next_line(game.fd);
 	while (game.line)
 	{
-		if (str_compare("\n", game.line) == 0)
+		if (str_compare_fn("\n", game.line) == 0)
 			return (ft_free_arr(game.map), free(game.line), NULL);
 		game.arr = ft_split(game.line, '\n');
 		game.map[game.i] = game.arr[0];
@@ -97,10 +97,8 @@ int	main(int ac, char **av)
 	game.mlx_win = mlx_new_window(game.mlx, game.col * 64, game.row * 64,
 			"so_long");
 	game.coins = count_collactable(game.map);
-	printf("%d\n", game.coins);
 	draw_map(&game);
-	// mlx_key_hook(game.mlx_win, key_hook, &game);
-	mlx_hook(game.mlx_win, 2, (1L << 0), key_hook, &game);
+	mlx_key_hook(game.mlx_win, key_hook, &game);
 	mlx_hook(game.mlx_win, 17, 0, mouse_event, &game);
 	mlx_loop(game.mlx);
 	free(game.map);

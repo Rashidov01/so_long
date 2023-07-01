@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 18:14:01 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/23 01:13:18 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/01 13:17:05 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,4 @@ void	draw_map(t_game *game)
 		}
 		y++;
 	}
-}
-
-void	close_window(t_game *game)
-{
-	mlx_clear_window(game->mlx, game->mlx_win);
-	mlx_destroy_window(game->mlx, game->mlx_win);
-	free(game->map);
-	exit(0);
 }

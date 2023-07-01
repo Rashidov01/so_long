@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyhooks.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:48:35 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/23 18:06:06 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/01 13:20:36 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	mark_exit(t_game *game, int x, int y)
 void	movescount(t_game *game, int x, int y, int flag)
 {
 	if (flag == 1)
-		printf("Moves: %d\n", game->moves++);
+		ft_printf("Moves: %d\n", game->moves++);
 	if (game->map[y][x] == 'C')
 	{
 		game->map[y][x] = '0';
@@ -34,12 +34,12 @@ void	movescount(t_game *game, int x, int y, int flag)
 	game->position_y = y;
 }
 
-void	win(t_game *game)
+void	game_win(t_game *game)
 {
 	if (game->coins <= 0
 		&& game->map[game->position_y][game->position_x] == 'E')
 	{
-		printf("\n\nYOU WIN !!!\n\n");
+		ft_printf("\n\nYOU WIN !!!\n\n");
 		close_window(game);
 	}
 }
@@ -60,22 +60,22 @@ int	moves(t_game *game, int x, int y)
 		graphics(game, SPACE, game->position_x, game->position_y);
 		graphics(game, ME, game->position_x + x, game->position_y + y);
 		movescount(game, game->position_x + x, game->position_y + y, 1);
-		win(game);
+		game_win(game);
 	}
 	return (0);
 }
 
 int	key_hook(int keycode, t_game *game)
 {
-	if (keycode == 13) //w
+	if (keycode == KEY_W)
 		moves(game, 0, -1);
-	else if (keycode == 0) //a
+	else if (keycode == KEY_A)
 		moves(game, -1, 0);
-	else if (keycode == 1) //s
+	else if (keycode == KEY_S)
 		moves(game, 0, 1);
-	else if (keycode == 2) //d
+	else if (keycode == KEY_D)
 		moves(game, 1, 0);
-	else if (keycode == 53)
+	else if (keycode == KEY_ESC)
 		close_window(game);
 	return (0);
 }

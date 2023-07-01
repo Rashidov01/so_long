@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_item.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 19:30:34 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/26 19:34:05 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/01 13:58:33 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ int	check_extra_character(char **map)
 	while (map[i])
 	{
 		if (check_character(map[i]) == 0)
-			return (write(2, "Error: There is an extra character!!!\n", 36),
-					0);
+			return (write(2, "Error: There is an extra character!!!\n", 36), 0);
 		i++;
 	}
 	return (1);
@@ -95,21 +94,4 @@ int	check_collectible(char **map)
 	if (count == 0)
 		return (write(2, "Error: There is not collectable!!!\n", 36), 0);
 	return (1);
-}
-
-int	count_collactable(char **map)
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (map[i])
-	{
-		count += check_line(map[i], 'C');
-		i++;
-	}
-	if (count == 0)
-		return (0);
-	return (count);
 }

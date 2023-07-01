@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:55:56 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/26 19:34:53 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/01 13:58:28 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	get_row_count(char **map)
 	return (i);
 }
 
-// this function check the map, is it rectangle or no;
 int	check_map_rectangle(char **map)
 {
 	int	length;

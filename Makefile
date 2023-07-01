@@ -3,16 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+         #
+#    By: arashido <arashido@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/24 11:26:50 by arashido          #+#    #+#              #
-#    Updated: 2023/06/20 18:58:09 by arashido         ###   ########.fr        #
+#    Updated: 2023/07/01 14:04:47 by arashido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = so_long.c parsing_map.c parsing_error.c parsing_item.c\
-			valid_map.c utils/gnl/gnl_utils.c utils/gnl/get_next_line_utils.c\
-			utils/gnl/get_next_line.c utils.c keyhooks.c\
+			valid_map.c utils.c keyhooks.c parsing_helper.c\
+			libs/gnl/get_next_line.c libs/gnl/get_next_line_utils.c\
+			libs/ft_printf/ft_printf.c libs/ft_printf/ft_hex.c\
+			libs/ft_printf/ft_putchar.c libs/ft_printf/ft_putnbr.c\
+			libs/ft_printf/ft_putstr.c libs/ft_printf/ft_putund.c libs/ft_printf/print_pointer.c \
 
 OBJ	= $(SRC:.c=.o)
 

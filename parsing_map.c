@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <avazbekrashidov6@gmail.com>      +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:55:58 by arashido          #+#    #+#             */
-/*   Updated: 2023/06/29 01:55:00 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/01 13:19:06 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// this function checks the border top and bottom
 int	check_line_x(char *line)
 {
 	int	i;
@@ -27,7 +26,6 @@ int	check_line_x(char *line)
 	return (1);
 }
 
-// this function checks the border right and left
 int	check_line_y(char *line)
 {
 	int	i;
@@ -49,7 +47,6 @@ int	check_line_y(char *line)
 	return (1);
 }
 
-// this function counts the line of the map
 int	get_row(char *str)
 {
 	int		fd;
@@ -69,7 +66,6 @@ int	get_row(char *str)
 	return (count);
 }
 
-// this function checks all the borders
 int	check_border(char **map)
 {
 	int	count;
@@ -82,20 +78,17 @@ int	check_border(char **map)
 		if (i == 0)
 		{
 			if (check_line_x(map[i]) == 0)
-				return (write(2, "Error: There is mistake in the border!!!\n",
-						42), 0);
+				return (write(2, "Error: Mistake in the border!!!\n", 33), 0);
 		}
 		else if (i == count - 1)
 		{
 			if (check_line_y(map[i]) == 0)
-				return (write(2, "Error: There is mistake in the border!!!\n",
-						42), 0);
+				return (write(2, "Error: Mistake in the border!!!\n", 33), 0);
 		}
 		else
 		{
 			if (check_line_y(map[i]) == 0)
-				return (write(2, "Error: There is mistake in the border!!!\n",
-						42), 0);
+				return (write(2, "Error: Mistake in the border!!!\n", 33), 0);
 		}
 		i++;
 	}
