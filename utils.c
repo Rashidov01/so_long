@@ -6,7 +6,7 @@
 /*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 20:30:26 by arashido          #+#    #+#             */
-/*   Updated: 2023/07/01 13:56:42 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/01 17:07:39 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ int	print_map(char **str)
 
 	i = 0;
 	while (str[i])
-	{
-		printf("value: %s\n", str[i]);
 		i++;
-	}
 	return (1);
 }
 
