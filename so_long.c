@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:56:01 by arashido          #+#    #+#             */
-/*   Updated: 2023/07/01 13:48:15 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/05 16:43:33 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,37 +40,12 @@ char	**get_map(char *str)
 	return (game.map);
 }
 
-int	map_parsing_helper(char **map)
+void	close_window(t_game *game)
 {
-	if (map == NULL || check_exit(map) == 0 || check_collectible(map) == 0
-		|| check_start(map) == 0 || check_border(map) == 0
-		|| check_extra_character(map) == 0 || check_map_rectangle(map) == 0)
-	{
-		if (map == NULL)
-			write(2, "Error: Invalide map !!!\n", 25);
-		return (1);
-	}
-	return (0);
-}
-
-int	ft_map_parsing(char **av)
-{
-	char	**map;
-
-	map = NULL;
-	if (file_check(av[1]) == 0 || file_check_permission(av[1]) == 0)
-	{
-		write(2, "file format error\n", 19);
-		return (1);
-	}
-	map = get_map(av[1]);
-	if (map_parsing_helper(map) == 1)
-	{
-		ft_free_arr(map);
-		return (1);
-	}
-	ft_free_arr(map);
-	return (0);
+	mlx_clear_window(game->mlx, game->mlx_win);
+	mlx_destroy_window(game->mlx, game->mlx_win);
+	free(game->map);
+	exit(0);
 }
 
 int	mouse_event(t_game *game)
@@ -94,6 +69,7 @@ int	main(int ac, char **av)
 	game.row = get_row_count(game.map);
 	game.col = ft_strlen(game.map[0]);
 	game.mlx = mlx_init();
+	mainchecker(&game);
 	game.mlx_win = mlx_new_window(game.mlx, game.col * 64, game.row * 64,
 			"so_long");
 	game.coins = count_collactable(game.map);

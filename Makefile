@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arashido <arashido@student.42.fr>          +#+  +:+       +#+         #
+#    By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/24 11:26:50 by arashido          #+#    #+#              #
-#    Updated: 2023/07/01 14:04:47 by arashido         ###   ########.fr        #
+#    Updated: 2023/07/08 20:41:44 by arashido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = so_long.c parsing_map.c parsing_error.c parsing_item.c\
-			valid_map.c utils.c keyhooks.c parsing_helper.c\
+SRC = so_long.c parsing_map.c parsing_error.c parsing_item.c error_messages.c\
+			valid_path.c game_utils.c game_keyhooks.c \
+			parsing_helper.c invalid_path.c\
 			libs/gnl/get_next_line.c libs/gnl/get_next_line_utils.c\
 			libs/ft_printf/ft_printf.c libs/ft_printf/ft_hex.c\
 			libs/ft_printf/ft_putchar.c libs/ft_printf/ft_putnbr.c\

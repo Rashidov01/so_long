@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_item.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 19:30:34 by arashido          #+#    #+#             */
-/*   Updated: 2023/07/01 14:46:00 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:36:39 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	check_exit(char **map)
 	}
 	if (count != 1)
 	{
-		write(2, "Error: there is no exit\n", 25);
+		write(2, "Error: there is no exit or more\n", 33);
 		return (0);
 	}
 	return (1);

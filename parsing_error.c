@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:55:56 by arashido          #+#    #+#             */
-/*   Updated: 2023/07/01 13:58:28 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/05 16:56:22 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ int	check_start(char **map)
 		i++;
 	}
 	if (count != 1)
-		return (write(2, "Error: There is no Player!!!\n", 30), 0);
+		return (write(2, "Error: There is no Player or more\n", 35), 0);
 	return (1);
 }

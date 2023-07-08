@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 20:30:26 by arashido          #+#    #+#             */
-/*   Updated: 2023/07/01 17:07:39 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/05 16:42:20 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	print_map(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (1);
-}
 
 void	ft_free_arr(char **p)
 {
@@ -49,14 +39,6 @@ int	str_compare_fn(char *s1, char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-void	close_window(t_game *game)
-{
-	mlx_clear_window(game->mlx, game->mlx_win);
-	mlx_destroy_window(game->mlx, game->mlx_win);
-	free(game->map);
-	exit(0);
-}
-
 int	count_collactable(char **map)
 {
 	int	i;
@@ -72,4 +54,29 @@ int	count_collactable(char **map)
 	if (count == 0)
 		return (0);
 	return (count);
+}
+
+void	free_and_exit(t_game *game)
+{
+	ft_free_arr(game->map);
+	free(game->map);
+	exit(1);
+}
+
+void	hashmaker(t_game *game)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (y < game->size_y)
+	{
+		x = 0;
+		while (x < game->size_x)
+		{
+			game->valid[y][x] = 0;
+			x++;
+		}
+		y++;
+	}
 }

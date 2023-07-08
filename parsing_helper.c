@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_helper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 13:58:05 by arashido          #+#    #+#             */
-/*   Updated: 2023/07/01 14:12:38 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/03 14:53:49 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*ft_substr(char	*s, int start, int len)
+char	*ft_substr(char *s, int start, int len)
 {
 	char	*substr;
 	int		substr_length;

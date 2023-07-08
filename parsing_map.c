@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arashido <arashido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arashido <arashido@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:55:58 by arashido          #+#    #+#             */
-/*   Updated: 2023/07/01 13:19:06 by arashido         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:34:09 by arashido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	check_border(char **map)
 	count = get_row_count(map);
 	while (map[i])
 	{
-		if (i == 0)
+		if (i == 0 || i == count - 1)
 		{
 			if (check_line_x(map[i]) == 0)
 				return (write(2, "Error: Mistake in the border!!!\n", 33), 0);
